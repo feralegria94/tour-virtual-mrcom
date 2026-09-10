@@ -155,6 +155,7 @@
 .tour-viewer-section {
   padding: 2rem 1.5rem;
   background: var(--bg-dark, #060E1E);
+  scroll-margin-top: 90px; /* deja espacio para el header fijo al hacer scroll (cambio de escena) */
 }
 
 .tour-viewer-wrap {
