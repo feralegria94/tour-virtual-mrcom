@@ -187,6 +187,7 @@
   border-radius: 50px;
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255,255,255,0.08);
+  z-index: 20;
 }
 
 .tour-controls .control-btn {
@@ -1095,9 +1096,20 @@
   }
 
   .tour-controls {
-    bottom: 12px;
+    /* En móvil: barra debajo del viewer (flujo normal, siempre visible) */
+    position: relative;
+    bottom: auto;
+    left: auto;
+    transform: none;
+    margin: 0.75rem auto 0;
+    width: max-content;
     padding: 0.5rem 1rem;
     gap: 0.75rem;
+    z-index: 30;
+  }
+
+  .tour-viewer-wrap {
+    padding-bottom: 0.25rem;
   }
 
   .tour-scene-info {
