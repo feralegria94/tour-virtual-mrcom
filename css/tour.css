@@ -121,9 +121,11 @@
   animation-delay: 0.45s;
 }
 
-.tour-hero .btn-start {
+/* Botón principal (base — funciona en hero y en CTA final) */
+.btn-start {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.75rem;
   background: linear-gradient(135deg, #6366f1, #8b5cf6);
   color: #fff;
@@ -133,15 +135,20 @@
   font-weight: 600;
   border-radius: 50px;
   cursor: pointer;
+  text-decoration: none;
   transition: all 0.3s ease;
   box-shadow: 0 8px 25px rgba(99,102,241,0.35);
-  animation: tour-hero-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
-  animation-delay: 0.6s;
 }
 
-.tour-hero .btn-start:hover {
+.btn-start:hover {
   transform: translateY(-3px);
   box-shadow: 0 12px 35px rgba(99,102,241,0.5);
+}
+
+/* En el hero: entrada cinemática al cargar */
+.tour-hero .btn-start {
+  animation: tour-hero-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.6s;
 }
 
 /* --- Sección del Tour Viewer --- */
