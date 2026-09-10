@@ -6,7 +6,7 @@
 const scenes = [
     {
         title: "Sala Principal",
-        description: "Arrastra para explorar este ambiente en 360° — así se verá tu propiedad",
+        description: "Ejemplo demostrativo — así se recorren los espacios de tu propiedad en 360°",
         image: "images/oficina-360.jpg",
         hotspots: [
             { yaw: -30, pitch: 0, type: "info", text: "Cada ambiente se conecta al siguiente", scene: null },
