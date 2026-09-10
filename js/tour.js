@@ -132,6 +132,16 @@ function createHotspot(hotspot) {
     };
 }
 
+// Scroll: centra el viewer interactivo (no el título de la sección)
+function scrollToViewer() {
+    const wrap = document.querySelector('.tour-viewer-wrap');
+    if (wrap) {
+        wrap.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else {
+        document.getElementById('tour').scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
 // Navigation functions
 function goToScene(index) {
     if (index < 0 || index >= scenes.length || index === currentScene) return;
@@ -144,8 +154,8 @@ function goToScene(index) {
     
     initViewer();
     
-    // Scroll to tour
-    document.getElementById('tour').scrollIntoView({ behavior: 'smooth' });
+    // Esperar a que el viewer se reconstruya antes de centrar el scroll
+    setTimeout(scrollToViewer, 80);
 }
 
 function nextScene() {
@@ -158,9 +168,9 @@ function previousScene() {
     goToScene(prev);
 }
 
-// Start tour (el viewer ya está cargado al entrar — solo hace scroll)
+// Start tour (el viewer ya está cargado al entrar — solo centra el scroll)
 function startTour() {
-    document.getElementById('tour').scrollIntoView({ behavior: 'smooth' });
+    scrollToViewer();
 }
 
 // Fullscreen
