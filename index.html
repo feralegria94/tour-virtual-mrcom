@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es-CL">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#060E1E">
+  <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+
+  <title>Tour Virtual 360° | MR.COM Soluciones</title>
+  <meta name="description" content="Recorre nuestras instalaciones en 360°. Conoce nuestras oficinas, showroom y zona de trabajo en Castro, Chiloé.">
+  <meta name="keywords" content="tour virtual, 360, recorrido virtual, MR.COM, oficinas, Castro, Chiloé">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Tour Virtual 360° | MR.COM Soluciones">
+  <meta property="og:description" content="Recorre nuestras instalaciones en 360° desde cualquier dispositivo. Oficinas, showroom y zona de trabajo.">
+  <meta property="og:image" content="https://shop.mrcomsoluciones.cl/assets/img/logo_mrcom.png">
+  <meta property="og:url" content="https://shop.mrcomsoluciones.cl/tour-virtual/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CL">
+
+  <!-- Fonts & CSS (misma estructura que la shop) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous">
+  <link rel="preconnect" href="https://cdn.pannellum.org" crossorigin="anonymous">
+
+  <link rel="preload" href="../assets/css/style.optimized.css" as="style">
+  <link rel="stylesheet" media="print" onload="this.onload=null;this.media='all'"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"></noscript>
+  <link rel="stylesheet" media="print" onload="this.onload=null;this.media='all'"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    integrity="sha512-Avb2QiuDEEvB4bZJYdft2mNjVShBftLdPG8FJ0V7irTLQ8Uo0qcPxh4Plq7G5tGm0rU+1SPhVotteLpBERwTkw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
+
+  <!-- CSS principal de la shop -->
+  <link rel="stylesheet" href="../assets/css/style.optimized.css?v=20260910-tour">
+  <!-- CSS propio del tour (sin conflictos) -->
+  <link rel="stylesheet" href="css/tour.css">
+  <!-- Pannellum CSS -->
+  <link rel="stylesheet" href="https://cdn.pannellum.org/2.5/pannellum.css">
+</head>
+
+<body>
+
+  <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+  <!-- Header de la shop -->
+  <mr-header data-page="tour" data-base=".."></mr-header>
+
+  <main id="main-content">
+
+    <!-- HERO DEL TOUR -->
+    <section class="tour-hero">
+      <div class="tour-hero-content">
+        <span class="tour-hero-tag">RECORRIDO INMERSIVO</span>
+        <h1>Tour Virtual <span class="text-primary-gradient">360°</span></h1>
+        <p class="tour-hero-subtitle">
+          Recorre nuestras instalaciones desde la comodidad de tu hogar. Explora cada espacio de MR.COM Soluciones en Castro, Chiloé.
+        </p>
+        <button class="btn-start" onclick="startTour()">
+          <i class="fas fa-play"></i> Iniciar Tour
+        </button>
+      </div>
+    </section>
+
+    <!-- TOUR VIEWER -->
+    <section id="tour" class="tour-viewer-section">
+      <div class="tour-viewer-wrap">
+        <!-- Pannellum Viewer -->
+        <div id="panorama" class="panorama-viewer"></div>
+
+        <!-- Tour Controls -->
+        <div class="tour-controls">
+          <button class="control-btn" onclick="previousScene()" title="Escena anterior" aria-label="Escena anterior">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          <div class="scene-indicator">
+            <span id="current-scene">1</span> / <span id="total-scenes">5</span>
+          </div>
+          <button class="control-btn" onclick="nextScene()" title="Escena siguiente" aria-label="Escena siguiente">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+
+        <!-- Scene Info Panel -->
+        <div class="tour-scene-info" id="scene-info">
+          <h3 id="scene-title">Oficina Principal</h3>
+          <p id="scene-description">Nuestro espacio de trabajo principal donde creamos soluciones tecnológicas</p>
+        </div>
+
+        <!-- Fullscreen Button -->
+        <button class="tour-fullscreen-btn" onclick="toggleFullscreen()" title="Pantalla completa" aria-label="Pantalla completa">
+          <i class="fas fa-expand"></i>
+        </button>
+      </div>
+    </section>
+
+    <!-- SELECTOR DE ESCENAS -->
+    <section class="tour-scenes-section">
+      <div class="container">
+        <h2 class="section-title">Selecciona una Escena</h2>
+        <div class="tour-scenes-grid">
+          <div class="tour-scene-card active" onclick="goToScene(0)">
+            <div class="tour-scene-thumb" style="background-image: url('images/oficina-360.jpg')"></div>
+            <div class="tour-scene-label">
+              <i class="fas fa-building"></i>
+              <span>Oficina Principal</span>
+            </div>
+          </div>
+          <div class="tour-scene-card" onclick="goToScene(1)">
+            <div class="tour-scene-thumb" style="background-image: url('images/sala-360.jpg')"></div>
+            <div class="tour-scene-label">
+              <i class="fas fa-couch"></i>
+              <span>Sala de Espera</span>
+            </div>
+          </div>
+          <div class="tour-scene-card" onclick="goToScene(2)">
+            <div class="tour-scene-thumb" style="background-image: url('images/pasillo-360.jpg')"></div>
+            <div class="tour-scene-label">
+              <i class="fas fa-door-open"></i>
+              <span>Entrada</span>
+            </div>
+          </div>
+          <div class="tour-scene-card" onclick="goToScene(3)">
+            <div class="tour-scene-thumb" style="background-image: url('images/exterior-360.jpg')"></div>
+            <div class="tour-scene-label">
+              <i class="fas fa-city"></i>
+              <span>Exterior</span>
+            </div>
+          </div>
+          <div class="tour-scene-card" onclick="goToScene(4)">
+            <div class="tour-scene-thumb" style="background-image: url('images/conferencias-360.jpg')"></div>
+            <div class="tour-scene-label">
+              <i class="fas fa-users"></i>
+              <span>Sala de Reuniones</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECCIÓN INFO -->
+    <section class="tour-info-section">
+      <div class="container">
+        <div class="tour-info-grid">
+          <div class="tour-info-card">
+            <div class="tour-info-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <h3>Ubicación</h3>
+            <p>Castro, Isla de Chiloé<br>Región de Los Lagos, Chile</p>
+          </div>
+          <div class="tour-info-card">
+            <div class="tour-info-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <h3>Horario</h3>
+            <p>Lunes a Viernes<br>9:00 - 18:00 hrs</p>
+          </div>
+          <div class="tour-info-card">
+            <div class="tour-info-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <h3>Contacto</h3>
+            <p>+56 9 7517 7638<br>info@mrcomsoluciones.cl</p>
+          </div>
+          <div class="tour-info-card">
+            <div class="tour-info-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <h3>Sitio Web</h3>
+            <p>mrcomsoluciones.cl<br>shop.mrcomsoluciones.cl</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer de la shop -->
+  <mr-footer data-base=".."></mr-footer>
+
+  <!-- WhatsApp Float (mismo estilo que la shop) -->
+  <a href="https://wa.me/56975177638?text=Hola,%20me%20interesa%20el%20tour%20virtual" class="tour-whatsapp-float" target="_blank" title="Contacto WhatsApp">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Pannellum JS -->
+  <script src="https://cdn.pannellum.org/2.5/pannellum.js"></script>
+
+  <!-- Componentes de la shop -->
+  <script type="module" src="../components/mr-header.js"></script>
+  <script type="module" src="../components/mr-footer.js"></script>
+
+  <!-- Tour Configuration -->
+  <script src="js/tour.js"></script>
+</body>
+</html>
