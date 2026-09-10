@@ -934,9 +934,9 @@
   50% { box-shadow: 0 6px 20px rgba(37,211,102,0.4), 0 0 0 16px rgba(37,211,102,0); }
 }
 
-/* Stats: número con escala al entrar */
+/* Stats: número con escala al entrar (mantiene block: número arriba, texto debajo) */
 .tour-stat-number {
-  display: inline-block;
+  display: block;
   transform: scale(0.8);
   transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
