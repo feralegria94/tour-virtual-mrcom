@@ -444,6 +444,346 @@
   filter: brightness(1.2);
 }
 
+/* --- Secciones de venta (dolor, stats, servicio, pasos, público, CTA) --- */
+.tour-section-sub {
+  text-align: center;
+  color: rgba(255,255,255,0.75);
+  font-size: 1.05rem;
+  max-width: 680px;
+  margin: -1.25rem auto 2.5rem;
+  line-height: 1.6;
+}
+
+/* --- Dolor del cliente --- */
+.tour-pain-section {
+  padding: 4rem 1.5rem;
+  background: #0a1628;
+}
+
+.tour-pain-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.tour-pain-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 1.75rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.tour-pain-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(84,92,110,0.45);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+}
+
+.tour-pain-icon {
+  width: 56px;
+  height: 56px;
+  background: rgba(140,84,92,0.15);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.tour-pain-icon i {
+  font-size: 1.35rem;
+  color: #e57373;
+}
+
+.tour-pain-card h3 {
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.tour-pain-card p {
+  color: rgba(255,255,255,0.65);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- Proof / stats --- */
+.tour-stats-section {
+  padding: 4rem 1.5rem;
+  background: #060E1E;
+}
+
+.tour-stats-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.tour-stat {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 2rem 1.25rem;
+}
+
+.tour-stat-number {
+  display: block;
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: clamp(2.2rem, 5vw, 3rem);
+  font-weight: 800;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.tour-stat-label {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.tour-stats-note {
+  text-align: center;
+  color: rgba(255,255,255,0.35);
+  font-size: 0.75rem;
+  margin-top: 1.75rem;
+}
+
+/* --- Servicio --- */
+.tour-service-section {
+  padding: 4rem 1.5rem;
+  background: #0a1628;
+}
+
+.tour-service-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.tour-service-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  padding: 1.75rem 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.tour-service-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(99,102,241,0.35);
+  box-shadow: 0 12px 30px rgba(99,102,241,0.12);
+}
+
+.tour-service-icon {
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(139,92,246,0.2));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.tour-service-icon i {
+  font-size: 1.3rem;
+  color: #818cf8;
+}
+
+.tour-service-card h3 {
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.tour-service-card p {
+  color: rgba(255,255,255,0.65);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- Pasos --- */
+.tour-how-section {
+  padding: 4rem 1.5rem;
+  background: #060E1E;
+}
+
+.tour-steps-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  position: relative;
+}
+
+.tour-step {
+  text-align: center;
+  padding: 1.5rem 1.25rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  position: relative;
+}
+
+.tour-step-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  color: #fff;
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  box-shadow: 0 8px 20px rgba(99,102,241,0.35);
+}
+
+.tour-step h3 {
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.tour-step p {
+  color: rgba(255,255,255,0.65);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- Para quién --- */
+.tour-for-section {
+  padding: 4rem 1.5rem;
+  background: #0a1628;
+}
+
+.tour-for-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.tour-for-card {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  transition: all 0.3s ease;
+}
+
+.tour-for-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(99,102,241,0.35);
+}
+
+.tour-for-icon {
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, rgba(99,102,241,0.2), rgba(139,92,246,0.2));
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.tour-for-icon i {
+  font-size: 1.4rem;
+  color: #818cf8;
+}
+
+.tour-for-card h3 {
+  color: #fff;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.tour-for-card p {
+  color: rgba(255,255,255,0.65);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* --- CTA final --- */
+.tour-cta-section {
+  padding: 4.5rem 1.5rem;
+  background: linear-gradient(135deg, #060E1E 0%, #101c38 100%);
+  text-align: center;
+}
+
+.tour-cta-section h2 {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.75rem;
+}
+
+.tour-cta-section p {
+  color: rgba(255,255,255,0.7);
+  font-size: 1.05rem;
+  margin-bottom: 2rem;
+}
+
+.tour-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.tour-cta-actions .btn-start {
+  text-decoration: none;
+  animation: none;
+}
+
+.tour-cta-actions .btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: transparent;
+  color: #fff;
+  border: 1px solid rgba(255,255,255,0.25);
+  padding: 0.9rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.tour-cta-actions .btn-outline:hover {
+  border-color: #818cf8;
+  color: #818cf8;
+  transform: translateY(-2px);
+}
+
 /* --- Loading --- */
 @keyframes tour-pulse {
   0%, 100% { opacity: 1; }

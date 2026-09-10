@@ -5,51 +5,51 @@
 // Scene definitions
 const scenes = [
     {
-        title: "Oficina Principal",
-        description: "Nuestro espacio de trabajo principal donde creamos soluciones tecnológicas",
+        title: "Sala Principal",
+        description: "Arrastra para explorar este ambiente en 360° — así se verá tu propiedad",
         image: "images/oficina-360.jpg",
         hotspots: [
-            { yaw: -30, pitch: 0, type: "info", text: "Mesa de trabajo principal", scene: null },
-            { yaw: 90, pitch: 10, type: "scene", text: "Ir a Sala de Espera", scene: 1 },
-            { yaw: 180, pitch: 5, type: "info", text: "Zona de servidores y equipos", scene: null },
+            { yaw: -30, pitch: 0, type: "info", text: "Cada ambiente se conecta al siguiente", scene: null },
+            { yaw: 90, pitch: 10, type: "scene", text: "Ir a Espacio de Estar", scene: 1 },
+            { yaw: 180, pitch: 5, type: "info", text: "Detalle del espacio a tu ritmo", scene: null },
         ]
     },
     {
-        title: "Sala de Espera",
-        description: "Un espacio cómodo para recibir a nuestros clientes",
+        title: "Espacio de Estar",
+        description: "El interesado recorre el lugar como si estuviera ahí, desde su celular",
         image: "images/sala-360.jpg",
         hotspots: [
-            { yaw: -60, pitch: 0, type: "info", text: "Área de descanso para clientes", scene: null },
-            { yaw: 120, pitch: 5, type: "scene", text: "Ir a Entrada", scene: 2 },
-            { yaw: 200, pitch: 0, type: "scene", text: "Volver a Oficina", scene: 0 },
+            { yaw: -60, pitch: 0, type: "info", text: "Hotspots con detalles de cada ambiente", scene: null },
+            { yaw: 120, pitch: 5, type: "scene", text: "Ir a Circulación", scene: 2 },
+            { yaw: 200, pitch: 0, type: "scene", text: "Volver a Sala Principal", scene: 0 },
         ]
     },
     {
-        title: "Entrada",
-        description: "El acceso principal a nuestras instalaciones",
+        title: "Circulación",
+        description: "Las fotos muestran habitaciones; el tour muestra la escala real del lugar",
         image: "images/pasillo-360.jpg",
         hotspots: [
-            { yaw: 45, pitch: 0, type: "info", text: "Acceso principal con sistema de seguridad", scene: null },
+            { yaw: 45, pitch: 0, type: "info", text: "Navegación intuitiva en cualquier dispositivo", scene: null },
             { yaw: 150, pitch: 5, type: "scene", text: "Ir a Exterior", scene: 3 },
-            { yaw: -90, pitch: 5, type: "scene", text: "Ir a Oficina", scene: 0 },
+            { yaw: -90, pitch: 5, type: "scene", text: "Ir a Sala Principal", scene: 0 },
         ]
     },
     {
         title: "Exterior",
-        description: "Vista exterior de nuestras instalaciones en Castro, Chiloé",
+        description: "Compradores de otra ciudad o país por fin pueden 'visitar' tu propiedad",
         image: "images/exterior-360.jpg",
         hotspots: [
-            { yaw: 0, pitch: 0, type: "info", text: "Entrada principal del edificio", scene: null },
+            { yaw: 0, pitch: 0, type: "info", text: "Terrenos y exteriores muestran su escala real", scene: null },
             { yaw: 180, pitch: 5, type: "scene", text: "Ir a Sala de Reuniones", scene: 4 },
         ]
     },
     {
         title: "Sala de Reuniones",
-        description: "Espacio para reuniones con clientes y presentaciones de proyectos",
+        description: "Así se verá tu anuncio: inmersivo, honesto y listo para publicar",
         image: "images/conferencias-360.jpg",
         hotspots: [
-            { yaw: 0, pitch: 5, type: "info", text: "Mesa de reuniones principal", scene: null },
-            { yaw: 120, pitch: 10, type: "scene", text: "Ir a Oficina Principal", scene: 0 },
+            { yaw: 0, pitch: 5, type: "info", text: "El tour disponible 24/7 filtra clientes de verdad", scene: null },
+            { yaw: 120, pitch: 10, type: "scene", text: "Ir a Sala Principal", scene: 0 },
             { yaw: 240, pitch: 5, type: "scene", text: "Ir a Exterior", scene: 3 },
         ]
     }
