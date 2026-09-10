@@ -221,4 +221,60 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typeof pannellum !== 'undefined' && !viewer) {
         initViewer();
     }
+
+    // ===== Sistema de animaciones on-scroll (revive el sitio) =====
+
+    // Agregar .reveal + stagger a las cards de los grids
+    const gridSelectors = [
+        '.tour-pain-grid .tour-pain-card',
+        '.tour-stats-grid .tour-stat',
+        '.tour-service-grid .tour-service-card',
+        '.tour-scenes-grid .tour-scene-card',
+        '.tour-steps-grid .tour-step',
+        '.tour-for-grid .tour-for-card',
+        '.tour-info-grid .tour-info-card',
+    ];
+
+    gridSelectors.forEach(selector => {
+        document.querySelectorAll(selector).forEach((el, i) => {
+            el.classList.add('reveal');
+            el.style.setProperty('--reveal-delay', `${Math.min(i * 0.09, 0.6)}s`);
+        });
+    });
+
+    // IntersectionObserver: marca como visible al entrar en pantalla
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('revealed');
+
+                // Contador animado en stats (solo una vez)
+                const numEl = entry.target.querySelector('.tour-stat-number');
+                if (numEl && !numEl.dataset.animated) {
+                    numEl.dataset.animated = 'true';
+                    animateCount(numEl);
+                }
+
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+    // Contador progresivo
+    function animateCount(el) {
+        const target = parseInt(el.dataset.count || el.textContent, 10) || 0;
+        const suffix = el.dataset.suffix || '';
+        const duration = 1400;
+        const start = performance.now();
+
+        function tick(now) {
+            const progress = Math.min((now - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+            el.textContent = Math.round(target * eased) + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+    }
 });

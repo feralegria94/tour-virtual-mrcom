@@ -790,6 +790,223 @@
   50% { opacity: 0.5; }
 }
 
+/* ========================================
+   ANIMACIONES DEL TOUR (pone el sitio vivo)
+   ======================================== */
+
+/* Títulos de sección centrados y consistentes (la shop los deja a la izquierda) */
+.tour-section .section-title,
+.tour-pain-section .section-title,
+.tour-stats-section .section-title,
+.tour-service-section .section-title,
+.tour-viewer-section .section-title,
+.tour-scenes-section .section-title,
+.tour-how-section .section-title,
+.tour-for-section .section-title,
+.tour-cta-section .section-title {
+  text-align: center;
+  font-weight: 800;
+}
+
+/* Subrayado animado bajo los títulos de sección */
+.tour-section .section-title,
+.tour-pain-section .section-title,
+.tour-stats-section .section-title,
+.tour-service-section .section-title,
+.tour-viewer-section .section-title,
+.tour-scenes-section .section-title,
+.tour-how-section .section-title,
+.tour-for-section .section-title,
+.tour-cta-section .section-title {
+  position: relative;
+  padding-bottom: 0.65rem;
+}
+
+.tour-section .section-title::after,
+.tour-pain-section .section-title::after,
+.tour-stats-section .section-title::after,
+.tour-service-section .section-title::after,
+.tour-viewer-section .section-title::after,
+.tour-scenes-section .section-title::after,
+.tour-how-section .section-title::after,
+.tour-for-section .section-title::after,
+.tour-cta-section .section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 3px;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #6366f1, #8b5cf6, #6366f1);
+  background-size: 200% 100%;
+  animation: tour-underline-grow 1s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
+}
+
+@keyframes tour-underline-grow {
+  0% { width: 0; }
+  100% { width: 120px; }
+}
+
+/* Reveal on scroll: las cards aparecen con fade-up escalonado */
+.reveal {
+  opacity: 0;
+  transform: translateY(36px) scale(0.97);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0s);
+  will-change: opacity, transform;
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* Hover: levantar cards + icono cobra vida */
+.tour-pain-card, .tour-stat, .tour-service-card, .tour-step,
+.tour-for-card, .tour-scene-card, .tour-info-card {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.35s ease, border-color 0.35s ease;
+}
+
+.tour-pain-card:hover, .tour-stat:hover, .tour-service-card:hover,
+.tour-step:hover, .tour-for-card:hover, .tour-info-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 22px 45px rgba(0,0,0,0.35);
+}
+
+.tour-pain-icon, .tour-service-icon, .tour-for-icon, .tour-info-icon {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.tour-pain-card:hover .tour-pain-icon,
+.tour-service-card:hover .tour-service-icon,
+.tour-for-card:hover .tour-for-icon,
+.tour-info-card:hover .tour-info-icon {
+  transform: scale(1.12) rotate(-6deg);
+}
+
+/* Botón principal: brillo que cruza (shine sweep) */
+.btn-start {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-start::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(100deg, transparent, rgba(255,255,255,0.35), transparent);
+  transform: skewX(-20deg);
+  animation: tour-shine 3s ease-in-out infinite;
+}
+
+@keyframes tour-shine {
+  0% { left: -80%; }
+  55%, 100% { left: 130%; }
+}
+
+/* Número de paso: pop al hover */
+.tour-step-num {
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.tour-step:hover .tour-step-num {
+  transform: scale(1.18) rotate(6deg);
+}
+
+/* WhatsApp float: pulso permanente */
+.tour-whatsapp-float {
+  animation: tour-whatsapp-pulse 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.tour-whatsapp-float:hover {
+  animation-play-state: paused;
+}
+
+@keyframes tour-whatsapp-pulse {
+  0%, 100% { box-shadow: 0 6px 20px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.55); }
+  50% { box-shadow: 0 6px 20px rgba(37,211,102,0.4), 0 0 0 16px rgba(37,211,102,0); }
+}
+
+/* Stats: número con escala al entrar */
+.tour-stat-number {
+  display: inline-block;
+  transform: scale(0.8);
+  transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.tour-stat.revealed .tour-stat-number {
+  transform: scale(1);
+}
+
+/* Hero: video se acerca sutilmente (slow zoom) */
+.tour-hero-video {
+  animation: tour-hero-slowzoom 22s ease-in-out infinite alternate;
+}
+
+@keyframes tour-hero-slowzoom {
+  0% { transform: scale(1); }
+  100% { transform: scale(1.08); }
+}
+
+/* Controles del viewer: entrada suave */
+.tour-controls, .tour-scene-info, .tour-fullscreen-btn {
+  animation: tour-controls-in 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.4s both;
+}
+
+@keyframes tour-controls-in {
+  0% { opacity: 0; transform: translateY(14px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Arrow indices del hero: sutil movimiento */
+.tour-hero-content .fa-play {
+  display: inline-block;
+  animation: tour-play-bounce 1.8s ease-in-out infinite;
+}
+
+@keyframes tour-play-bounce {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+
+/* ========================================
+   RESPONSIVE MEJORADO
+   ======================================== */
+
+/* PC grande: compactar nav antes de que desborde */
+@media (max-width: 1200px) {
+  .tour-pain-grid, .tour-for-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tour-service-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablet: header hamburguesa ya aparece (shop a 992px), grids compactan */
+@media (max-width: 992px) {
+  .tour-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tour-steps-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .tour-viewer-wrap .panorama-viewer {
+    height: 55vh;
+  }
+}
+
 /* --- Entrada cinemática del hero --- */
 @keyframes tour-hero-fade-up {
   0% {
@@ -821,6 +1038,40 @@
   .tour-hero-brand {
     font-size: 0.8rem;
     letter-spacing: 3px;
+  }
+
+  /* Grids de venta: 2 columnas en tablet */
+  .tour-pain-grid,
+  .tour-service-grid,
+  .tour-for-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .tour-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .tour-steps-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .tour-pain-section,
+  .tour-stats-section,
+  .tour-service-section,
+  .tour-viewer-section,
+  .tour-scenes-section,
+  .tour-how-section,
+  .tour-for-section,
+  .tour-cta-section {
+    padding: 3rem 1rem;
+  }
+
+  .tour-section-sub {
+    font-size: 0.95rem;
+    margin-bottom: 1.75rem;
   }
 
   .tour-hero h1 {
@@ -889,6 +1140,34 @@
 
   .tour-info-grid {
     grid-template-columns: 1fr;
+  }
+
+  /* Secciones de venta: 1 columna en móvil */
+  .tour-pain-grid,
+  .tour-service-grid,
+  .tour-for-grid,
+  .tour-stats-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .tour-pain-card,
+  .tour-service-card,
+  .tour-for-card,
+  .tour-stat {
+    padding: 1.25rem 1rem;
+  }
+
+  .tour-cta-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .tour-cta-actions .btn-start,
+  .tour-cta-actions .btn-outline {
+    width: 100%;
+    max-width: 320px;
+    justify-content: center;
   }
 
   .tour-hero .btn-start {
