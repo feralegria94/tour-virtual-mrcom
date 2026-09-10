@@ -158,14 +158,9 @@ function previousScene() {
     goToScene(prev);
 }
 
-// Start tour
+// Start tour (el viewer ya está cargado al entrar — solo hace scroll)
 function startTour() {
     document.getElementById('tour').scrollIntoView({ behavior: 'smooth' });
-    
-    // Load first scene if not loaded
-    if (!viewer) {
-        initViewer();
-    }
 }
 
 // Fullscreen
@@ -220,4 +215,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // Cargar el viewer automáticamente apenas entra la página
+    // (sin necesidad de hacer clic en "Iniciar Tour")
+    if (typeof pannellum !== 'undefined' && !viewer) {
+        initViewer();
+    }
 });
