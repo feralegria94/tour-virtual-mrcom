@@ -29,14 +29,14 @@
   filter: saturate(1.1);
 }
 
-/* Overlay para legibilidad del texto sobre el video */
+/* Overlay gris delante del video para legibilidad */
 .tour-hero-overlay {
   position: absolute;
   inset: 0;
   z-index: 1;
   background:
-    linear-gradient(to top, rgba(6,14,30,0.95) 0%, rgba(6,14,30,0.55) 50%, rgba(6,14,30,0.35) 100%),
-    radial-gradient(ellipse at 50% 40%, rgba(99,102,241,0.18) 0%, transparent 60%);
+    linear-gradient(to top, rgba(38,44,58,0.92) 0%, rgba(45,52,68,0.70) 50%, rgba(45,52,68,0.55) 100%),
+    radial-gradient(ellipse at 50% 40%, rgba(120,130,150,0.12) 0%, transparent 60%);
   pointer-events: none;
 }
 
@@ -53,8 +53,26 @@
 .tour-hero-content {
   position: relative;
   z-index: 2;
-  max-width: 700px;
+  max-width: 720px;
   padding: 2rem 1.5rem;
+}
+
+/* Marca arriba del título */
+.tour-hero-brand {
+  display: inline-block;
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: #d4d4dc;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(90,96,110,0.25);
+  padding: 0.5rem 1.4rem;
+  border-radius: 999px;
+  margin-bottom: 1.25rem;
+  animation: tour-hero-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.15s;
 }
 
 .tour-hero-tag {
@@ -70,19 +88,37 @@
   text-transform: uppercase;
 }
 
-.tour-hero h1 {
+.tour-hero h1,
+.tour-hero-title {
   font-family: 'Outfit', 'Inter', sans-serif;
-  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-size: clamp(2.6rem, 7vw, 4.5rem);
   font-weight: 800;
-  line-height: 1.15;
+  line-height: 1.05;
   margin-bottom: 1rem;
+  color: #ffffff;
+  animation: tour-hero-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.3s;
+  text-shadow: 0 4px 30px rgba(0,0,0,0.45);
+}
+
+/* El "360°" destacado en blanco con halo sutil (legible sobre gris) */
+.tour-hero-title-360 {
+  color: #ffffff;
+  background: linear-gradient(90deg, rgba(120,130,150,0.35), rgba(160,170,190,0.35));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 40px rgba(255,255,255,0.25);
 }
 
 .tour-hero-subtitle {
   font-size: 1.15rem;
-  opacity: 0.85;
+  opacity: 0.9;
   line-height: 1.6;
   margin-bottom: 2rem;
+  color: #e4e4ea;
+  animation: tour-hero-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.45s;
 }
 
 .tour-hero .btn-start {
@@ -99,6 +135,8 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 8px 25px rgba(99,102,241,0.35);
+  animation: tour-hero-fade-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: 0.6s;
 }
 
 .tour-hero .btn-start:hover {
@@ -412,6 +450,20 @@
   50% { opacity: 0.5; }
 }
 
+/* --- Entrada cinemática del hero --- */
+@keyframes tour-hero-fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(28px) scale(0.98);
+    filter: blur(6px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
 .tour-loading {
   animation: tour-pulse 2s infinite;
 }
@@ -420,6 +472,15 @@
 @media (max-width: 768px) {
   .tour-hero {
     min-height: 45vh;
+  }
+
+  .tour-hero-title {
+    font-size: 2rem;
+  }
+
+  .tour-hero-brand {
+    font-size: 0.8rem;
+    letter-spacing: 3px;
   }
 
   .tour-hero h1 {
