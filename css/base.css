@@ -1,0 +1,105 @@
+/* ========================================
+   Tour Virtual — Base (autocontenido para GitHub Pages)
+   Reemplaza style.optimized.css de la shop
+   ======================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background: #060E1E;
+  color: #e2e8f0;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+a { color: inherit; text-decoration: none; }
+img, video { max-width: 100%; display: block; }
+ul { list-style: none; }
+
+/* Skip-link: oculto hasta que recibe foco por teclado */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 8px;
+  z-index: 10000;
+  padding: 8px 16px;
+  background: #0f172a;
+  color: #fff;
+  border: 2px solid #38bdf8;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  transition: top 0.2s;
+}
+.skip-link:focus { top: 8px; }
+
+/* Contenedor */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Titulos */
+.section-title {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 700;
+  color: #f1f5f9;
+  text-align: center;
+  margin-bottom: 12px;
+}
+.tour-section-sub {
+  text-align: center;
+  color: #94a3b8;
+  max-width: 700px;
+  margin: 0 auto 32px;
+  font-size: 1.05rem;
+}
+
+/* Header simple (autocontenido) */
+.mr-header {
+  position: sticky;
+  top: 0;
+  z-index: 900;
+  background: rgba(6, 14, 30, 0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+  padding: 14px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.mr-header__logo {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 1.15rem;
+  color: #f1f5f9;
+}
+.mr-header__logo span { color: #38bdf8; }
+.mr-header__nav a {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin-left: 24px;
+  transition: color 0.2s;
+}
+.mr-header__nav a:hover { color: #38bdf8; }
+
+/* Footer simple (autocontenido) */
+.mr-footer {
+  background: #04080f;
+  border-top: 1px solid rgba(148, 163, 184, 0.1);
+  padding: 32px 24px;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.9rem;
+}
+.mr-footer a { color: #38bdf8; }
+
+/* Responsive */
+@media (max-width: 640px) {
+  .mr-header__nav { display: none; }
+}

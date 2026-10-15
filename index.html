@@ -4,8 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#060E1E">
-  <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
-
   <title>Tour Virtual 360° para Propiedades | MR.COM Soluciones</title>
   <meta name="description" content="Tours virtuales 360° para arrendar y vender propiedades más rápido. Convierte tu anuncio en el más visitado y filtra clientes interesados de verdad. Castro, Chiloé.">
   <meta name="keywords" content="tour virtual 360, tour 360 propiedades, arriendo más rápido, vender propiedad, fotos 360, MR.COM, Castro, Chiloé">
@@ -67,7 +65,7 @@
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin="anonymous">
   <link rel="preconnect" href="https://cdn.pannellum.org" crossorigin="anonymous">
 
-  <link rel="preload" href="../assets/css/style.optimized.css" as="style">
+  <link rel="preload" href="css/base.css" as="style">
   <link rel="stylesheet" media="print" onload="this.onload=null;this.media='all'"
     href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"></noscript>
@@ -77,8 +75,8 @@
     crossorigin="anonymous" referrerpolicy="no-referrer">
   <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"></noscript>
 
-  <!-- CSS principal de la shop -->
-  <link rel="stylesheet" href="../assets/css/style.optimized.css?v=20260910-tour">
+  <!-- CSS base (autocontenido, reemplaza style.optimized.css de la shop) -->
+  <link rel="stylesheet" href="css/base.css">
   <!-- CSS propio del tour (sin conflictos) -->
   <link rel="stylesheet" href="css/tour.css">
   <!-- Pannellum CSS -->
@@ -89,8 +87,14 @@
 
   <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
 
-  <!-- Header de la shop -->
-  <mr-header data-page="tour" data-base=".."></mr-header>
+  <!-- Header -->
+  <header class="mr-header">
+    <a href="https://mrcomsoluciones.cl" class="mr-header__logo">MR.<span>COM</span> Soluciones</a>
+    <nav class="mr-header__nav">
+      <a href="#tour">Demo 360°</a>
+      <a href="https://wa.me/56975177638" target="_blank">Contacto</a>
+    </nav>
+  </header>
 
   <main id="main-content">
 
@@ -316,8 +320,11 @@
 
   </main>
 
-  <!-- Footer de la shop -->
-  <mr-footer data-base=".."></mr-footer>
+  <!-- Footer -->
+  <footer class="mr-footer">
+    <p>© 2026 <a href="https://mrcomsoluciones.cl">MR.COM Soluciones</a> — Castro, Chiloé, Chile</p>
+    <p>ventas@mrcomsoluciones.cl · +56 9 7517 7638</p>
+  </footer>
 
   <!-- WhatsApp Float (mismo estilo que la shop) -->
   <a href="https://wa.me/56975177638?text=Hola,%20me%20interesa%20un%20tour%20virtual%20360°" class="tour-whatsapp-float" target="_blank" title="Contacto WhatsApp">
@@ -326,10 +333,6 @@
 
   <!-- Pannellum JS -->
   <script src="https://cdn.pannellum.org/2.5/pannellum.js"></script>
-
-  <!-- Componentes de la shop -->
-  <script type="module" src="../components/mr-header.js"></script>
-  <script type="module" src="../components/mr-footer.js"></script>
 
   <!-- Tour Configuration -->
   <script src="js/tour.js"></script>
